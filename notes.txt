@@ -1,0 +1,41 @@
+Getting involved in ROS 2 development
+  yes for ROS2 for driverless
+  not highest level of safety
+  company of 15
+  Lacking area, hard real time, security and robusness mechanisms
+  Apex.OS saftey critical version of ROS2
+  Hardreal time
+    produce deterministis output in term of resource consumption
+    all real time components, Mutexs dont block infenetly so that they can time out.
+    example. Provided an alternative to the ROS2 callback. Similar to Unix style select call
+    point cloud messages, as messages get larger in size so do the flight time of these messages. 
+    Reduces the flight time of your large messages. 
+    ROS2 Launch, intilization, can handle purturbations, being able to recovere from system level faults
+    Security is a never ending battle. Not just DDS. Executable whitelist, block against malicious participants.
+    over the air updates. 
+    Testing and certification, how to prove code is safe. Follow functional safety standards to the letter
+    hit minimal level quality and then safety
+    Ros2 documentation still a bit raw. ROS2 metrics, line branch. Apex CI. Labsetup for the purpose of testing.
+    Standing on the sholders of the open source comunity. Upstreaming features. 
+    ROS2 is stable enough for automotive grade
+    https://www.apex.ai/
+
+RViz - The tale of a migration to ROS 2.0 - Andreas Holzner
+  ROS2 Operating System Platform independent
+  old code base 40k lines c++ code, 5-8 years old. almost no tests, some manual tests
+  Migration steps
+  Node interface with ROS, from scematic point of view, changes not that big. Account for specific differences between 
+  Rviz in a nutshell. Automatically test these festures of Rvitz, integration tests. Run the display code, can cover display properties
+  Conculusion, 3D rendering must be included
+  rviz_visual_testing_framework
+  tests easy to write and read
+  take a screen shot and compare, high signal to noise ratio. Number of differnt pixels are very small.
+  rviz_visual_testing_framework, making sure the tests are stable. Is migration complete, documentation for plugins and migration. 
+  What is missing.
+
+Launch for ROS 2 William Woodall (Open Robotics)
+  Launch System for Ros2
+  Global Paramater Server, no master that holds the parameters. Examples using new syntax, show latest and greatest.
+  Example 1: Talker/Listener
+    runs program that passes node names. An executable that has more than one node in it. Just want to change the name of the talked and the lisener.
+    On command line, call the executable. For the lissener this argument applies. New way of doing nodelets. Load Dynamically
