@@ -39,3 +39,61 @@ Launch for ROS 2 William Woodall (Open Robotics)
   Example 1: Talker/Listener
     runs program that passes node names. An executable that has more than one node in it. Just want to change the name of the talked and the lisener.
     On command line, call the executable. For the lissener this argument applies. New way of doing nodelets. Load Dynamically
+    Need to build on top of python code. RosTest Multi-Machine Launch 
+    https://github.com/ros2/ros2/wiki/Launch-system
+    https://github.com/ros2/launch/blob/master/launch/doc/source/architecture.rst
+    
+Getting involved in ROS 2 development, Deanna Hood (Open Robotics) Mikael Aguedas (Open Robotics)
+  Creating a Bug report, trouble shooting. Where that bug might live?
+  Developer contributions. Large features go through feature workflow. Design discussion input.
+  Just working on your own project off on the side. In the end contribute back to the community.
+
+Use of the Spatio-Temporal Voxel Layer Steve Macenski (Simbe Robotics)
+  Cause maps, planners and controllers to get you where you are going. Look into costmaps, plugin based layers.
+  makes master occupany grib. In some ways the 2D is a good estimate. If you have something above the laser plane.
+  Voxel Layer, users ray casting. Written in 2013. When the Kinetic Sensor, real sense D. Problematic if you are trying to raycast at a further limit
+  Lall indoor robot like tally. Validine senor. Temporal based clearing blocking some valid paths. Voxel lay has orphans or trailing voxels.
+  More information no static enviorments. Lots of kids in enviorment. Need to be able to move in a high speed enviorment very safley. Raycasting at its core.
+  Leveraging datastructures developed by dreamworks animation.sparse volumetric sets to, lots of branching factors
+  Voxels inside. Camras, radars and sonars. If someone is stalking a shelf. Minimual tunning of paramaters.
+  ...
+
+Margarida Costa Faria -> Lazy_theta_star-a deterministic 3D path planner
+  UAV, planner that works fully in 3D, autonomous exploration. Maximum amount a seconds you can wait for an answer.
+  Volume constraints, locallization error. Octomaps, free occpided, and unknown. Does the minimum number of obscticle checks it can
+  Jump from simulation to implementation datasets recovered from the laser. 
+  ...
+
+!!!NOTE -> Presentation slides posted in 2 weeks or so!!!
+
+David V Lu!!! (Locus Robotics) Planning to Plan: New Flexible Navigation Interfaces
+  using animation principles to increase people perception of the robots. Have it look in the direction.
+  Get if it failed, how it failed, why it failed
+  Customizing the planners that are part of the navigation stack. 
+  Navigation behaviour for context. State of the navigation stack. Locomotor
+  Maintain current navigation stack. Current number of forks. Take the code and make one small tweak.
+  Push changes back upstream. Tons of parameters in the navigation stack. Lots of corner cases.
+  A lot of people have forked privatly.
+    navigation stack really only afords for planar navigation. Navcore interfaces have not been updated in more than a decade
+    Most cost maps -vs 2d grids
+    NavFM
+  Local Planners, movebase. Central to the ROS navigation stack. Changing list of static recovery behaviors.
+  Build reusable. No blackboxs. Data structures that occurs often. Navgrid
+  Data storage abstracted, backed by a vector
+  Typeing is template based
+  Message types that dont suffer. Grid map people. Plugins in the NavStack. Certain transforms need to be present befor initalizaiton
+  track changes within the cost map.
+  Compatiable with 2D Ros
+  Locus Robotics, Run free cell to free cell in given maps
+  !!!Key Components!!! Movebase
+    takes the global planner and takes it to the lower planner. Complexity comes from when planning fails.
+    Each of the planners are run in a seperate thread. End of crashing into things.
+    updating the cost maps.
+  timer will trigger again and get robot to move along the path
+  global planning fails.
+  If the start pose is invalid. Can extend this class to fit your particular context. Get both local and global plan updating continuously
+  Load Navcore recovery behaviour
+  Plugin Lib Plugins, switch between via c++ or rosservice. When the global plan is made. Move base is centered around move base action
+  ROS2 version out by the end of year
+  Movebase. Percolating in differnt forms for multiple years. Standup navigation
+  
